@@ -42,7 +42,7 @@
 <window sclass="form-container" border="normal" apply="controllers.employee.EmployeeApprovalController">
     
     <hbox align="center" pack="center" spacing="10px" height="50px" width="100%">
-	 	<label value="Pending Account Closing Requests" style="font-size:20px; font-weight:bold; color:#333" />
+	 	<label value="Pending Account Update Requests" style="font-size:20px; font-weight:bold; color:#333" />
 	 </hbox>
     <listbox id="requestList" width="100%" mold="paging" pageSize="10">
         <listhead>

@@ -56,4 +56,9 @@ public class CloseAccountComposer extends SelectorComposer<Component>{
 			Messagebox.show("Request send Successfully for closing the account");
 		}
 	}
+	
+	@Listen("onClick=#btnReset")
+	public void resetRequest() {
+		Executions.sendRedirect("view_all_account.zul");
+	}
 }

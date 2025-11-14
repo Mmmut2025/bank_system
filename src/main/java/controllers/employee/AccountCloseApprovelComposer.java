@@ -21,7 +21,6 @@ import services.EmailService;
 
 
 public class AccountCloseApprovelComposer extends SelectorComposer<Component>{
-	
 	private final AccountCloseRequestDao accountCloseDao = new AccountCloseRequestDao();
 	
 	@Wire Listbox requestList;

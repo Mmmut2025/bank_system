@@ -109,7 +109,7 @@
 
         <hbox  pack="center" spacing="20px" style="margin-top:20px; " height="20px" width="100%">
             <button label="Submit" id="update" width="130px" sclass="btn-primary" />
-            <button label="Cancel" id="cancel"  width="130px" sclass="btn-primary"  />
+            <button label="Back" id="cancel"  width="130px" sclass="btn-primary"  />
         </hbox>
 
     </vlayout>

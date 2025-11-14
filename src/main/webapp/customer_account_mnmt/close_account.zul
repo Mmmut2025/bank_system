@@ -8,9 +8,9 @@
         }
 
         .form-container {
-            width: 50vw;              /* 40% of viewport width */
-        	min-width: 500px;         /* Prevent it from shrinking too much */
-        	max-width: 600px;         /* Prevent it from stretching too wide */
+          	margin:10% auto;           /* 40% of viewport width */
+        	min-width: 50%;         /* Prevent it from shrinking too much */
+        	max-width: 60%;         /* Prevent it from stretching too wide */
         	border-radius: 15px;
         	padding: 25px;
         	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -92,7 +92,7 @@
 
            	<hbox  pack="center" spacing="20px" style="margin-top:10px; " height="50px" width="100%">
            		<button label="Submit" id="btnSubmit" sclass="btn-primary" onClick="@command('submitForm')"/>
-           		<button label="Reset" id="btnReset" sclass="btn-primary" onClick="@command('resetForm')"/>
+           		<button label="Back	" id="btnReset" sclass="btn-primary" onClick="@command('resetForm')"/>
     		</hbox>
     </window>
    </hbox>
