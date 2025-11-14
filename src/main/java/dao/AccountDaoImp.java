@@ -75,7 +75,7 @@ public class AccountDaoImp implements AccountDao {
 				    account_type ENUM('SAVINGS', 'CURRENT', 'SALARY') NOT NULL,
 				    account_status ENUM('ACTIVE', 'INACTIVE', 'CLOSED') DEFAULT 'ACTIVE',
 				    branch_name VARCHAR(100) NOT NULL,
-				    mode_of_operation ENUM('SELF', 'JOINT', 'EITHER_OR_SURVIVOR') NOT NULL,
+				    mode_of_operation ENUM('SELF', 'JOINT') NOT NULL,
 
 				    nominee_id BIGINT,
 				    FOREIGN KEY (nominee_id) REFERENCES nominee(nominee_id),

@@ -83,7 +83,7 @@ public class OpenAccountComposer extends SelectorComposer<Component> {
 //               // Executions.sendRedirect("/customer_dashboard.zul");
 //                return;
 //            }
-            customerId = 1L;  // existing customer
+            customerId = 1001L;  // existing customer
             
             if(acconntService.isAccountExists(customerId , accType)) {
             	return;

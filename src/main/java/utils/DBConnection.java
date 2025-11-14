@@ -11,7 +11,7 @@ public class DBConnection {
 	 private static final String DB_NAME = "banking_system"; 
 	 private static String url = "jdbc:mysql://localhost:3306/"+DB_NAME;
 	 private static String username = "root";
-	 private static String password = "root123";
+	 private static String password = "Nayan@2025";
 	 private static String driver="com.mysql.cj.jdbc.Driver";
 	    
 	    

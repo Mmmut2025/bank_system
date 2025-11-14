@@ -27,7 +27,7 @@ public class AllAccountsComposer extends SelectorComposer<Window> {
       
 
         Long customerId = (Long) Executions.getCurrent().getSession().getAttribute("customer_id");
-        customerId=1L;
+        customerId=1001L;
         
 //        if (customerId == null) {
 //            Messagebox.show("Session expired. Please log in again.", "Error", Messagebox.OK, Messagebox.ERROR);

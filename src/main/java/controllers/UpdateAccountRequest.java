@@ -56,7 +56,7 @@ public class UpdateAccountRequest extends SelectorComposer<Component> {
          req.setNewModeOfOperation(newAccMode);
          
          Long customerId = (Long) Executions.getCurrent().getSession().getAttribute("customer_id");
-         customerId=1L;
+         customerId=1001L;
          req.setRequestedBy(customerId);
 
          if(new AccountUpdateRequestDao().save(req)) {

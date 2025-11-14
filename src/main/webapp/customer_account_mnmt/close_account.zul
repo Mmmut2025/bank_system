@@ -84,7 +84,7 @@
 
                     <row>
                     	<cell colspan="2"> 
-                    		<checkbox id="confirmClose" label="I confirm that I want to close my account."/>
+                    		<checkbox id="confirmClose"  label="I confirm that I want to close my account."/>
                     	</cell>
                     </row>
                 </rows>
