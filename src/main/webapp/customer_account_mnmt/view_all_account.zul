@@ -38,11 +38,11 @@
     
     
     
-	 .action-icon {
+	.action-icon {
     	font-size: 21px;
     	cursor: pointer;
     	transition: all 0.2s ease;
-    	padding: 5px;
+    	padding: 8px;
     	border-radius: 50%;
 	}
 
@@ -51,7 +51,7 @@
 	}
 
 	.view-icon {
-    	color: #2196F3; /* blue */
+    	color: #2196F3; 
 	}
 
 	.view-icon:hover {
@@ -59,12 +59,12 @@
 	}
 
 	.edit-icon {
-    	color: #FFC107; /* amber */
+    	color: #FFC107;
 	}
 
 	.edit-icon:hover {
     	background-color: rgba(255,193,7,0.15);
-	}
+	} 
 
 	.delete-icon {
    		color: #F44336; /* red */

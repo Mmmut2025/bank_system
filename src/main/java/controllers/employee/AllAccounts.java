@@ -44,9 +44,9 @@ public class AllAccounts extends SelectorComposer<Window> {
         accountListbox.getItems().clear();
         for (Account acc : accounts) {
             Listitem item = new Listitem();
-            item.appendChild(new Listcell(String.valueOf(acc.getAccount_no())));
+            item.appendChild(new Listcell(acc.getAccount_no()+""));
             item.appendChild(new Listcell(acc.getAccount_type().name()));
-            item.appendChild(new Listcell(String.format("%.2f", acc.getBalance())));
+            item.appendChild(new Listcell(acc.getBalance()+""));
             item.appendChild(new Listcell(acc.getAccount_status().name()));
 
             // store account object as value
@@ -71,7 +71,7 @@ public class AllAccounts extends SelectorComposer<Window> {
         }
 
         List<Account> filtered = allAccounts.stream()
-                .filter(acc -> String.valueOf(acc.getAccount_no()).contains(searchText))
+                .filter(acc -> (acc.getAccount_no()+"").contains(searchText))
                 .collect(Collectors.toList());
 
         renderAccountList(filtered);

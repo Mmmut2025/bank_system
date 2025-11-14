@@ -47,22 +47,6 @@
             transform: translateY(-2px);
             box-shadow: 0 3px 10px rgba(0,0,0,0.2);
         }
-
-        button {
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            background: #f7f7f7;
-            font-size: 12pt;
-            padding: 10px 0;
-            width: 150px;
-            cursor: pointer;
-            transition: 0.3s all;
-        }
-
-        button:hover {
-            background: #e8e8e8;
-        }
-
         </style>    
     
 <hbox align = "center" pack = "center" width="100%" height = "100%" style = " background-color: #B7AEC8;">
@@ -75,15 +59,14 @@
 		</hbox>
 
 
-        <!-- READ-ONLY INFO -->
         <grid width="100%">
             <rows>
                 <row>
-                    <label value="Account Number:" width="210px"/>
+                    <label value="Account Number:" width="40%"/>
                     <label id="accountNo" style="font-weight:bold"/>
                 </row>
                 <row>
-                    <label value="Current Balance:" width="210px"/>
+                    <label value="Current Balance:" width="40%"/>
                     <label id="accountBalance" />
                 </row>
                 <row>
@@ -93,15 +76,12 @@
             </rows>
         </grid>
 
-        <!-- <separator bar="true" /> -->
-
-        <!-- FIELDS CUSTOMER CAN REQUEST TO CHANGE -->
+        
         <grid width="100%">
             <rows>
-
                 <row>
                     <label value="Account Type:" />
-                    <combobox placeholder="Select new type" width="210px" id="accountType">
+                    <combobox placeholder="Select new type" width="90%" id="accountType">
                     	<comboitem label="Saving" value="SAVING"></comboitem>
                     	<comboitem label="Current" value="CURRENT"></comboitem>
                     	<comboitem label="Salary" value="SALARY"></comboitem>
@@ -110,8 +90,8 @@
 
                 <row>
                     <label value="Branch Name:" />
-                    <combobox placeholder="Select Branch" width="210px" id="accountBranch">
-                    	<comboitem label="Aligarh" value="Aaligarh"></comboitem>
+                    <combobox placeholder="Select Branch" width="90%" id="accountBranch">
+                    	<comboitem label="Aligarh" value="Aligarh"></comboitem>
                     	<comboitem label="Mathura" value="Mathura"></comboitem>
                     	<comboitem label="New Delhi" value='New Delhi'></comboitem>
                     </combobox>
@@ -119,15 +99,13 @@
 
                 <row>
                     <label value="Mode of Operation:" />
-                    <combobox placeholder="Select new mode" width="210px" id="accountMode">
+                    <combobox placeholder="Select new mode" width="90%" id="accountMode">
                     	<comboitem label="Self" value="SELF"></comboitem>
                     	<comboitem label="Join" value="JOINT"></comboitem>
                     </combobox>
                 </row>
             </rows>
         </grid>
-
-        <!-- <separator bar="true" /> -->
 
         <hbox  pack="center" spacing="20px" style="margin-top:20px; " height="20px" width="100%">
             <button label="Submit" id="update" width="130px" sclass="btn-primary" />

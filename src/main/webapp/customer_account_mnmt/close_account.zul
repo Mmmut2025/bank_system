@@ -73,17 +73,13 @@
             <grid>
                 <rows>
                     <row>
-                    	<cell>
-                    		<label value="Account Number:"/>
-                    	</cell>
-                    	<cell align="left">
-                    		<label id="accountNo"></label>
-                        </cell>
+                    	<label value="Account Number:"/>
+                    	<label id="accountNo" style="font-weight:bold"></label>
                     </row>
 
                     <row>
                         <label value="Reason for Closing:"/>
-                     	<textbox multiline="true" width="180px" height="60px" style="padding:10px"></textbox>
+                     	<textbox multiline="true" id="reason" width="180px" height="60px" style="padding:10px"></textbox>
                     </row>
 
                     <row>

@@ -50,7 +50,6 @@ public class EmployeeApprovalController extends SelectorComposer<Component> {
         	Messagebox.show("Please select one account first!" );
         	return;
         }
-    	alert("lksadf");
         AccountUpdateRequest req = requestList.getSelectedItem().getValue();
         dao.approveRequest(req.getRequestId(), currentEmployeeId);
         loadPendingRequests();

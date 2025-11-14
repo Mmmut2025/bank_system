@@ -71,17 +71,17 @@ public class UpdateAccountRequest extends SelectorComposer<Component> {
 	
 	public boolean isFormValid(){
 		if(accountType.getSelectedItem() == null) {
-			showWarning("Minimum initial deposit must be ₹1000 or above.");
+			showWarning("Please select Account Type.");
             return false;
 		}
 		
 		if(accountBranch.getSelectedItem() == null) {
-			showWarning("Minimum initial deposit must be ₹1000 or above.");
+			showWarning("Please select Branch.");
             return false;
 		}
 		
 		if(accountMode.getSelectedItem() == null) {
-			showWarning("Minimum initial deposit must be ₹1000 or above.");
+			showWarning("Please select Mode of Operation.");
             return false;
 		}
 		return true;

@@ -312,7 +312,7 @@ public class AccountDaoImp implements AccountDao {
 	        
 	        if (resultSet.next()) {
 	            long highestAccountNo = resultSet.getLong("account_no");
-	            System.out.println("Highest Account No: " + highestAccountNo);
+	            //System.out.println("Highest Account No: " + highestAccountNo);
 	            return highestAccountNo;
 	        }
 	        else {
@@ -322,7 +322,7 @@ public class AccountDaoImp implements AccountDao {
 	        e.printStackTrace();
 	        Messagebox.show(e.getMessage());
 	    }
-	    return 10001000; // return -1 if no record found or error occurred
+	    return 10001000; // return 10001000 if no record found or error occurred
 	}
 
 }

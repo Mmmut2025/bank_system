@@ -24,24 +24,24 @@ public class SingleAccountDetails extends SelectorComposer<Window> {
        // if (selectedAccountNo == null || customerId == null) {
          if (selectedAccountNo == null) {
             Messagebox.show("Invalid access or session expired!", "Error", Messagebox.OK, Messagebox.ERROR);
-            Executions.sendRedirect("close_account.zul");
+            Executions.sendRedirect("index.zul");
             return;
         }
 
         Account acc = acconntService.getAccountDetails(selectedAccountNo);
         if (acc == null) {
             Messagebox.show("Account not found!", "Error", Messagebox.OK, Messagebox.ERROR);
-            Executions.sendRedirect("close_account.zul");
+            Executions.sendRedirect("index.zul");
             return;
         }
 
-        accountNo.setValue(String.valueOf(acc.getAccount_no()));
+        accountNo.setValue(acc.getAccount_no()+"");
         accountType.setValue(acc.getAccount_type().name());
-        accountBalance.setValue(String.format("%.2f", acc.getBalance()));
+        accountBalance.setValue(acc.getBalance()+"");
         accountStatus.setValue(acc.getAccount_status().name());
         accountBranch.setValue(acc.getBranch_Name());
         modeOfOperation.setValue(acc.getMode_of_operation().name());
-        nomineeId.setValue(String.valueOf(acc.getNominee_id()));
+        nomineeId.setValue(acc.getNominee_id()+"");
     }
 
     @Listen("onClick = #backBtn")

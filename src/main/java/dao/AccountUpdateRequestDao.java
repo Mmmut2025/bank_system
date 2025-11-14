@@ -18,7 +18,7 @@ public class AccountUpdateRequestDao {
 					account_no BIGINT NOT NULL,
 					new_account_type ENUM('SAVINGS', 'CURRENT', 'SALARY'),
 					new_branch_name VARCHAR(100),
-					new_mode_of_operation ENUM('SELF', 'JOINT', 'EITHER_OR_SURVIVOR'),
+					new_mode_of_operation ENUM('SELF', 'JOINT'),
 					status ENUM('PENDING', 'APPROVED', 'REJECTED') DEFAULT 'PENDING',
 					requested_by BIGINT,  -- customer_id
 					reviewed_by BIGINT,   -- employee_id (NULL until approved/rejected)

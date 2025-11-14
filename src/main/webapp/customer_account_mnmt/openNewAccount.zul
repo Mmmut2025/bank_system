@@ -1,73 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="xhtml" xmlns:n="native">
 
-    <style>
-        body {
-            margin: 0;
-            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+   <style>
+    body {
+        margin: 0;
+        background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
+    .form-container {
+        width: 90%;
+        min-width: 300px;
+        max-width: 700px;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        animation: fadeIn 0.5s ease-in;
+        margin: 20px auto;
+        box-sizing: border-box;
+    }
+
+    @keyframes fadeIn {
+        0% {opacity: 0; transform: translateY(20px);}
+        100% {opacity: 1; transform: translateY(0);}
+    }
+
+    label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #6c63ff, #8e7dff);
+        color: white;
+        border: none;
+        padding: 10px 0;
+        border-radius: 10px;
+        font-size: 12pt;
+        cursor: pointer;
+        transition: 0.3s all;
+        width: 150px;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #574fd6, #6c63ff);
+        transform: translateY(-2px);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* === Responsive Design === */
+
+    /* Tablet screens */
+    @media (max-width: 1024px) {
         .form-container {
-            width: 50vw;              /* 40% of viewport width */
-        	min-width: 500px;         /* Prevent it from shrinking too much */
-        	max-width: 600px;         /* Prevent it from stretching too wide */
-        	border-radius: 15px;
-        	padding: 25px;
-        	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        	background-color: #fff;
-        	animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            0% {opacity: 0; transform: translateY(20px);}
-            100% {opacity: 1; transform: translateY(0);}
+            width: 70%;
+            padding: 20px;
         }
 
         label {
-            font-weight: bold;
-            color: #333;
+            font-size: 14px;
         }
 
-       
         .btn-primary {
-            background: linear-gradient(135deg, #6c63ff, #8e7dff);
-            color: white;
-            border: none;
-            padding: 10px 0;
-            border-radius: 10px;
-            font-size: 12pt;
-            cursor: pointer;
-            transition: 0.3s all;
-            width: 150px;
+            width: 130px;
+            font-size: 11pt;
+        }
+    }
+
+    /* Mobile screens */
+    @media (max-width: 768px) {
+        .form-container {
+            width: 90%;
+            padding: 15px;
         }
 
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #574fd6, #6c63ff);
-            transform: translateY(-2px);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        grid, hbox, row {
+            display: block;
+            width: 100%;
         }
 
-        button {
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            background: #f7f7f7;
-            font-size: 12pt;
-            padding: 10px 0;
-            width: 150px;
-            cursor: pointer;
-            transition: 0.3s all;
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 13px;
         }
 
-        button:hover {
-            background: #e8e8e8;
+        textbox, combobox, doublebox, longbox {
+            width: 50% !important;
         }
 
-        </style>
+        .btn-primary {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+    }
+</style>
         
 <hbox align = "center" pack = "center" width="100%" height = "100%" style = " background-color: #B7AEC8;">
 <window border="normal" sclass="form-container" apply="controllers.OpenAccountComposer">
-	 <!-- Header -->
+	
 	 <hbox align="center" pack="center" spacing="10px" height="50px" width="100%">
 	 	<label value="Bank Account Opening Form" style="font-size:20px; font-weight:bold; color:#333" />
 	 </hbox>
@@ -121,8 +154,8 @@
         </rows>
     </grid>
     <hbox  pack="center" spacing="20px" style="margin-top:20px; " height="50px" width="100%">
-           <button label="Submit" id="btnSubmit" sclass="btn-primary" onClick="@command('submitForm')"/>
-           <button label="Reset" id="btnReset" onClick="@command('resetForm')"/>
+           <button label="Submit" id="btnSubmit" sclass="btn-primary" />
+           <button label="Reset" id="btnReset" sclass="btn-primary" />
     </hbox>
 </window>
 </hbox>
