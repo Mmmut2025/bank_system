@@ -9,9 +9,11 @@ import models.AccountUpdateRequest;
 import utils.DBConnection;
 
 public class AccountUpdateRequestDao {
+	public AccountUpdateRequestDao() {
+		createSchema();
+	}
 	
-	
-	public boolean createSchema() {
+	public static void createSchema() {
 		String query = """
 					CREATE TABLE IF NOT EXISTS account_update_request (
 					request_id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -32,12 +34,10 @@ public class AccountUpdateRequestDao {
 			Statement statement = DBConnection.getMyConnection().createStatement();
 			statement.executeUpdate(query);
 			System.out.println("updation table created");
-			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			Messagebox.show(e.getMessage());
 		}
-		return false;
 	}
 
 	public boolean save(AccountUpdateRequest req) {
@@ -162,7 +162,7 @@ public class AccountUpdateRequestDao {
 	        int rows = ps.executeUpdate();
 
 	        if (rows > 0) {
-	            Messagebox.show("Request rejected successfully.");
+	            Messagebox.show("Request rejected successfully.","Success", Messagebox.OK, Messagebox.INFORMATION);
 	        } else {
 	            Messagebox.show("No request found with ID: " + reqId);
 	        }

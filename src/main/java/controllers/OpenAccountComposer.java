@@ -83,7 +83,7 @@ public class OpenAccountComposer extends SelectorComposer<Component> {
 //               // Executions.sendRedirect("/customer_dashboard.zul");
 //                return;
 //            }
-            customerId = (long)1001L;  // existing customer
+            customerId = 1L;  // existing customer
             
             if(acconntService.isAccountExists(customerId , accType)) {
             	return;
@@ -154,7 +154,7 @@ public class OpenAccountComposer extends SelectorComposer<Component> {
             showWarning("Nominee Name cannot be empty.");
             return false;
         }
-        if(!nomineeName.getValue().trim().matches("[a-zA-Z]+")) {
+        if(!nomineeName.getValue().trim().matches("[a-zA-Z ]+")) {
         	showWarning("Nominee Name cannot have other than character");
             return false;
         }

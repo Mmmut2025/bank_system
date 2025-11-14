@@ -39,7 +39,7 @@
         
         <hlayout>
             <textbox id="searchBox" placeholder="Search by Account No"
-                     width="90%" onOK="@command('searchAccount')"/>
+                     width="90%" />
             <button id="searchBtn" label="Search"/>
         </hlayout>
 

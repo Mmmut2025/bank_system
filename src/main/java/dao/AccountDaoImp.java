@@ -21,6 +21,11 @@ import utils.DBConnection;
 
 public class AccountDaoImp implements AccountDao {
 	
+	public AccountDaoImp()
+	{
+		createAccountSchema();
+	}
+	
 	@Override
 	public boolean isSameAccount(long customer_id, String accountType) {
 		String q = "select * from account where customer_id = ? and account_type = ?";
@@ -40,7 +45,7 @@ public class AccountDaoImp implements AccountDao {
 		return false;
 	}
 	
-	public boolean createSchema() {
+	public static void createSchema() {
 		String query = """
 					CREATE TABLE IF NOT EXISTS customer (
 					customer_id BIGINT PRIMARY KEY,,
@@ -54,25 +59,20 @@ public class AccountDaoImp implements AccountDao {
 			Statement statement = DBConnection.getMyConnection().createStatement();
 			statement.executeUpdate(query);
 			System.out.println("customer table created");
-			return true;
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			Messagebox.show(e.getMessage());
 		}
-		return false;
 	}
 	
 	
-	
-	
-	
-	
-	private boolean createAccountSchema() {
+	private  boolean createAccountSchema() {
 		String query = """
 					CREATE TABLE IF NOT EXISTS account (
 				    account_no BIGINT PRIMARY KEY,
 				    balance DOUBLE NOT NULL CHECK (balance >= 0),
-				    account_type ENUM('SAVING', 'CURRENT', 'SALARY') NOT NULL,
+				    account_type ENUM('SAVINGS', 'CURRENT', 'SALARY') NOT NULL,
 				    account_status ENUM('ACTIVE', 'INACTIVE', 'CLOSED') DEFAULT 'ACTIVE',
 				    branch_name VARCHAR(100) NOT NULL,
 				    mode_of_operation ENUM('SELF', 'JOINT', 'EITHER_OR_SURVIVOR') NOT NULL,

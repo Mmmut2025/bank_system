@@ -16,8 +16,7 @@ public class NomineeServiceImp implements NomineeService{
 	}
 	
 	public boolean isPresentNominee(long nomineeId) {
-		Nominee nominee = nomineeDao.getNominee(nomineeId);
-		if(nominee != null) {
+		if(nomineeDao.isNomineeExist(nomineeId)) {
 			return true;
 		}
 		return false;

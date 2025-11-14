@@ -22,15 +22,15 @@ public class UpdateAccountRequest extends SelectorComposer<Component> {
 	@Wire private Combobox accountType, accountBranch , accountMode;
 	
 	private final AccountServiceImp acconntService = new AccountServiceImp();
-	Long accountNum;
+	Account acc;
 	
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		
-		accountNum = (Long) Executions.getCurrent().getSession().getAttribute("selected_account_no");
+		Long accountNum = (Long) Executions.getCurrent().getSession().getAttribute("selected_account_no");
 		
-        Account acc = acconntService.getAccountDetails(accountNum);
+        acc = acconntService.getAccountDetails(accountNum);
         accountNo.setValue(acc.getAccount_no()+"");
         accountBalance.setValue(acc.getBalance()+"");
         accountStatus.setValue(acc.getAccount_status().name());
@@ -44,18 +44,19 @@ public class UpdateAccountRequest extends SelectorComposer<Component> {
 		 if (!isFormValid()) return;
 		
 		 //Messagebox.show("Request submitted successfully!");
-		 String accType = accountType.getSelectedItem().getValue();
-		 String accBranch = accountBranch.getSelectedItem().getValue();
-		 String accMode = accountMode.getSelectedItem().getValue(); 
+		 String newAccType = accountType.getSelectedItem().getValue();
+		 String newAccBranch = accountBranch.getSelectedItem().getValue();
+		 String newAccMode = accountMode.getSelectedItem().getValue(); 
 		
+		 
 		 AccountUpdateRequest req = new AccountUpdateRequest();
-         req.setAccountNo(accountNum);
-         req.setNewAccountType(accType);
-         req.setNewBranchName(accBranch);
-         req.setNewModeOfOperation(accMode);
+         req.setAccountNo(acc.getAccount_no());
+         req.setNewAccountType(newAccType);
+         req.setNewBranchName(newAccBranch);
+         req.setNewModeOfOperation(newAccMode);
          
          Long customerId = (Long) Executions.getCurrent().getSession().getAttribute("customer_id");
-         customerId=1001L;
+         customerId=1L;
          req.setRequestedBy(customerId);
 
          if(new AccountUpdateRequestDao().save(req)) {

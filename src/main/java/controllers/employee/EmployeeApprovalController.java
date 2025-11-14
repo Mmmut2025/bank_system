@@ -7,6 +7,8 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zul.*;
 import dao.AccountUpdateRequestDao;
 import models.AccountUpdateRequest;
+import services.EmailService;
+
 import java.util.*;
 
 public class EmployeeApprovalController extends SelectorComposer<Component> {
@@ -52,8 +54,16 @@ public class EmployeeApprovalController extends SelectorComposer<Component> {
         }
         AccountUpdateRequest req = requestList.getSelectedItem().getValue();
         dao.approveRequest(req.getRequestId(), currentEmployeeId);
+        //Messagebox.show("Request approved successfully!");
+        
+        EmailService email = new EmailService();
+        email.sendEmail(
+            "hk5511073@gmail.com",
+            "Account Update Approved",
+            "Your request has been approved."
+        );
+        
         loadPendingRequests();
-        Messagebox.show("Request approved successfully!");
     }
 
     @Listen("onClick = #rejectBtn")
@@ -63,9 +73,17 @@ public class EmployeeApprovalController extends SelectorComposer<Component> {
         	return;
         }
         AccountUpdateRequest req = requestList.getSelectedItem().getValue();
+        
         dao.rejectRequest(req.getRequestId(), currentEmployeeId);
+        //Messagebox.show("Request rejected.");
+        
+        EmailService email = new EmailService();
+        email.sendEmail(
+            "hk5511073@gmail.com",
+            "Account Update Rejected",
+            "Your request has been rejected."
+        );
         loadPendingRequests();
-        Messagebox.show("Request rejected.");
     }
 }
 

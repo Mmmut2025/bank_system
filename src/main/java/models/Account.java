@@ -13,7 +13,6 @@ public class Account {
 	private LocalDateTime created_at;
 	
 	
-	
 	public Account(long account_no, long customer_id, double balance, AccountType account_type,
 			AccountStatus account_status, String branch_Name, ModeOfOperation mode_of_operation, long nominee_id,
 			LocalDateTime created_at) {
@@ -38,7 +37,7 @@ public class Account {
 	}
 	
 	public enum AccountType {
-		CURRENT,SAVING,SALARY
+		CURRENT,SAVINGS,SALARY
 	}
 	
 	public enum ModeOfOperation{
