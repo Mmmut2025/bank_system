@@ -67,8 +67,8 @@ public class AccountCloseRequestDao {
 				statement.setLong(3, req.getRequestedBy());
 				
 				if(statement.executeUpdate() > 0) {
-					System.out.println("Account closer Request successfully save in db");
-					Messagebox.show("Account closer Request successfully save in db");
+					//System.out.println("Account closer Request successfully save in db");
+					//Messagebox.show("Account closer Request successfully save in db");
 					return true;
 				}
 			}

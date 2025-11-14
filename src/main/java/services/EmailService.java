@@ -33,6 +33,6 @@ public class EmailService {
         message.setText(messageText);
 
         Transport.send(message);
-        Messagebox.show("Email send to customer regarding the status of account update request");
+        //Messagebox.show("Email send to customer regarding the status of account update request");
     }
 }

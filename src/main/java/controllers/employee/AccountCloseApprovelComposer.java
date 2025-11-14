@@ -15,6 +15,8 @@ import org.zkoss.zul.Messagebox;
 import dao.AccountCloseRequestDao;
 import models.AccountCloseRequest;
 import models.AccountUpdateRequest;
+import services.AccountServiceImp;
+import services.EmailService;
 
 
 
@@ -58,24 +60,50 @@ public class AccountCloseApprovelComposer extends SelectorComposer<Component>{
 	}
 	
 	@Listen("onClick=#approveBtn")
-	public void approveRquest() {
+	public void approveRquest() throws Exception {
 		if(requestList.getSelectedItem()==null) {
         	Messagebox.show("Please select one account first!" );
         	return;
         }
 		AccountCloseRequest req = requestList.getSelectedItem().getValue();
+		
+		if(new AccountServiceImp().checkBalance(req.getAccountNo()) > 0) {
+			Messagebox.show("First of all withdrawal your balance then do request for account closing");
+			EmailService email = new EmailService();
+		        email.sendEmail(
+		            "hk5511073@gmail.com",
+		            "Update regarding Account Closing request",
+		            "First of all withdrawal your balance then do request for account closing"
+		    );
+		    return;
+		}
+		
         accountCloseDao.approveRequest(req.getRequestId(), currentEmployeeId, "");
+      
         loadPendingRequests();
+        EmailService email = new EmailService();
+        email.sendEmail(
+            "hk5511073@gmail.com",
+            "Account Update Approvel",
+            "Your request has been approve."
+        );
 	}
 	
 	@Listen("onClick=#rejectBtn")
-	public void rejectRquest() {
+	public void rejectRquest() throws Exception {
 		if(requestList.getSelectedItem()==null) {
         	Messagebox.show("Please select one account first!" );
         	return;
         }
 		AccountCloseRequest req = requestList.getSelectedItem().getValue();
         accountCloseDao.rejectRequest(req.getRequestId(), currentEmployeeId, "");
+        
         loadPendingRequests();
+        EmailService email = new EmailService();
+        email.sendEmail(
+            "hk5511073@gmail.com",
+            "Account Update Rejected",
+            "Your request has been rejected."
+        );
 	}
 }
